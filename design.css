@@ -1,0 +1,27 @@
+/*
+********************************************login page*********************************************************88
+*/
+.login{
+	display: inline-block;
+    
+    text-align: center;
+}
+
+.divLogin{
+	margin: auto;
+    width: 50%;
+    border: 3px solid green;
+    padding: 10px;
+}
+
+.backColor{
+	background: blue;
+}
+
+.title{
+	color: white;
+	font-family: calibri;
+}
+/*
+********************************************login page*********************************************************88
+*/
