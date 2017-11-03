@@ -9,11 +9,11 @@
 	<nav></nav>
 	<section>
 	<div align="center" class="divLogin">
-		<form class="login">
+		<form class="login" action="mainmenu.html" method="POST">
 			<div><h1 class="title titleH1">WELCOME TO E-CLINIC</h1></div>
 			<div><img src="IMG/ICONLOGIN.png" height="100px" width="100px"></div>
 			<div align="center">
-				<table>
+				<table >
 					<tr>
 						<td class="childDiv"><b class="title">USERNAME:</b></td>
 						<td class="childDiv"><input type="text" name="username" id="username"></td>
@@ -23,7 +23,7 @@
 						<td class="childDiv"><input type="password" name="password" id="password"></td>
 					</tr>
 					<tr>
-						<td class="childDiv"><input type="submit" name="Login" id="loginbtn" value="Login" href="mainmenu.html"></td>
+						<td class="childDiv"><input type="submit" name="Login" id="loginbtn" value="Login" onclick="validate()"></td>
 						<td class="childDiv"><input type="submit" name="Cancel" id="cancelbtn" value="Cancel"></td>
 					</tr>
 				</table>
@@ -32,6 +32,10 @@
 	</div>
 	</section>
 	<footer></footer>
+	<script type="text/javascript">
+		function validate(){
+		}
+	</script>
 </body>
 
 </html>

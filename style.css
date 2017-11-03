@@ -64,13 +64,13 @@ body{
     z-index: 1;
     top: 0;
     left: 0;
-    background-color: white;
+    background-color: #66ffff;
     overflow-x: hidden;
     padding-top: 20px;
 }
 
 .sidenav button{
-		background-color: #0066ff;
+	background-color: #0066ff;
     border: none;
     color: white;
     padding: 15px 32px;
