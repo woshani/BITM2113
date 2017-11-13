@@ -21,7 +21,7 @@
  </div>
 
  <div class="container" >
-   <form action="" class="register">
+   <form action="" class="register" name="myForm" onsubmit="return validateForm()">
     <h2 class="text_format">Patient Details</h2>
       <table class="tbl_in_consult">
         <tr>
@@ -42,11 +42,11 @@
         </tr>
         <tr>
           <td>Complaint :</td>
-          <td><textarea class="text_format" rows="3" cols="40"s></textarea></td>
+          <td><textarea class="text_format" name="complaint" value="complaint" rows="3" cols="40"s></textarea></td>
         </tr>
         <tr>
           <td>Comments :</td>
-          <td><textarea class="text_format" rows="4" cols="40"s></textarea></td>
+          <td><textarea class="text_format" name="commments" value="commments" rows="4" cols="40"s></textarea></td>
         </tr>
         <tr>
           <td></td>
@@ -54,9 +54,10 @@
         </tr>
         <tr>
           <td>Drugs :</td>
-          <td><select class="text_format">
-            <option>Panadol</option>
-            <option>Cough</option>
+          <td><select class="text_format" name="drugs" id="drugs" value="drugs" style="width: 200px;">
+						<option value="">select</option>
+            <option value="panadol">Panadol</option>
+            <option value="cough syrup">Cough syrup</option>
           </select></td>
         </tr>
         <tr>
@@ -69,13 +70,35 @@
         </tr>
         <tr>
           <td></td>
-          <td><input type="button" name="" class="button" value="submit"></td>
+          <td><input type="button" name="" class="button" value="submit" onclick="validateForm()"></td>
         </tr>
       </table>
-  
+
     </form>
 
  </div>
+
+ <script type="text/javascript">
+	 function validateForm(){
+		 var complaint = document.forms["myForm"]["complaint"].value;
+		 var commments = document.forms["myForm"]["commments"].value;
+		 var drugs = document.forms["myForm"]["drugs"].value;
+				if (complaint == "") {
+						alert("complaints must be filled out");
+						focus();
+						return false;
+				 }else if (commments =="") {
+						alert("comments must be filled out");
+						focus();
+						return false;
+					}else if (drugs =="") {
+							alert("drugs must be be chosen out");
+							focus();
+							return false;
+
+						 }
+		 }
+ </script>
 
 
  </body>
