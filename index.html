@@ -9,14 +9,14 @@
 	<nav></nav>
 	<section>
 	<div align="center" class="divLogin">
-		<form class="login" action="mainmenu.html" method="POST">
+		<form class="login" action="mainmenu.html" method="POST" name="myForm" onsubmit="return validateForm()">
 			<div><h1 class="title titleH1">WELCOME TO E-CLINIC</h1></div>
 			<div><img src="IMG/ICONLOGIN.png" height="100px" width="100px"></div>
 			<div align="center">
 				<table >
 					<tr>
 						<td class="childDiv"><b class="title">USERNAME:</b></td>
-						<td class="childDiv"><input type="text" name="username" id="username"></td>
+						<td class="childDiv"><input type="text" name="username" id="username" maxlength="10"></td>
 					</tr>
 					<tr>
 						<td class="childDiv"><b class="title">PASSWORD:</b></td>
@@ -32,9 +32,21 @@
 	</div>
 	</section>
 	<footer></footer>
+
 	<script type="text/javascript">
-		function validate(){
-		}
+		function validateForm(){
+			var name = document.forms["myForm"]["username"].value;
+			var password = document.forms["myForm"]["password"].value;
+				 if (name == "") {
+						 alert("username must be filled out");
+						 return false;
+	 			 	}else if (password =="") {
+		 				 alert("password must be filled out");
+						 focus();
+						 return false;
+
+	 			 		}
+			}
 	</script>
 </body>
 
