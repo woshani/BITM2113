@@ -14,7 +14,7 @@
 }
 
 .backColor{
-	background: #0066ff;
+	background: #438cf9;
 }
 
 .title{
@@ -42,12 +42,12 @@
 */
 
 body{
-	background-color: #eae8e8;
+	background-color:  #cccccc;
 	margin: 0;
 }
 
 .topnav {
-	background-color: #0066ff;
+	background-color: #438cf9;
 	overflow: hidden;
 	margin-left: 250px;
   height: 20%;
@@ -64,7 +64,7 @@ body{
     z-index: 1;
     top: 0;
     left: 0;
-    background-color: #66ffff;
+    background-color: #438cf9;
     overflow-x: hidden;
     padding-top: 20px;
 }
@@ -130,6 +130,54 @@ body{
 	margin-top: 40px;
 }
 
+.tbl {
+        font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 80%;
+        margin-left: 0px;
+}
+
+.tbl td, .tbl th {
+        border: 1px solid #ddd;
+        padding: 8px;
+}
+
+.tbl tr:nth-child(even){background-color: #f2f2f2;}
+
+.tbl tr:hover {background-color: #ddd;}
+
+.tbl th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+        background-color: #4485e5;
+        color: white;
+}
+
+.button {
+    background-color: #2256a3; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.tbl_in_consult {
+        font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 50%;
+        margin-left: 0px;
+}
+
+.text_format{
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+}
+
+
 /*
 ********************************************main menu*********************************************************88
 */
+
