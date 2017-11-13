@@ -8,7 +8,7 @@
 
 <body>
   <div class="topnav">
-    <h1> OUTPATIENT REGISTRATION </h1>
+    <h1> Report </h1>
     <br/>
  </div>
 
@@ -21,27 +21,29 @@
  </div>
 
  <div class="container" >
-   <form action="/action_page.php" class="register">
-      Matric No:
-      <input type="text" name="firstname" value="Mickey" style="margin-left: 33px; width: 200px;">
-      <br>
-      Name:
-      <input type="text" name="lastname" value="Mouse" style="margin-left: 70px; width: 200px;">
-      <br>
-      IC No:
-      <input type="text" name="lastname" value="Mouse" style="margin-left: 69px; width: 200px;">
-      <br>
-      Email:
-      <input type="text" name="lastname" value="Mouse" style="margin-left: 70px; width: 200px;">
-      <br>
-      Race:
-      <input type="text" name="lastname" value="Mouse" style="margin-left: 79px; width: 200px;">
-
-      <br><br>
-      <input type="submit" value="Submit" style="margin-left: 79px;">
-      <input type="reset" value="Reset" style="margin-left: 28px;">
-    </form>
-
+   <table id="listPatient" class="tbl">
+        <tr>
+          <th>No</th>
+          <th>Matric Number</th>
+          <th>Ic/Passport</th>
+          <th>Name</th>
+          <th>Action</th>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>B031520027</td>
+          <td>951258462515</td>
+          <td>Ali</td>
+          <td><a href="#" name="btnConsult" class="button">Generate Report</a></td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>B031590027</td>
+          <td>951258462513</td>
+          <td>Mickey</td>
+          <td><a href="#" name="btnConsult" class="button">Generate Report</a></td>
+        </tr>
+      </table>
  </div>
 
 
