@@ -14,10 +14,12 @@
 
  <div class="sidenav">
 
-   <img src="IMG/sitipic.png"/>
+   <img src="#"/>
    <p class="text_format"> WELCOME SITI </p>
    <button> MANAGE ACCOUNT</button>
-   <button> LOG OUT</button>
+	 <a href="../mainmenu.html"><button>HOME</button></a>
+   <a href="index.html"><button> LOG OUT</button></a>
+
  </div>
 
  <div class="container" >
@@ -30,7 +32,7 @@
         </tr>
         <tr>
           <td>Name:</td>
-          <td>Ali</td>
+          <td>Ana Aisyah Bt Fairuz</td>
         </tr>
         <tr>
           <td>Ic/Passport Number:</td>
@@ -53,8 +55,8 @@
           <td></td>
         </tr>
         <tr>
-          <td>Drugs :</td>
-          <td><select class="text_format" name="drugs" id="drugs" value="drugs" style="width: 200px;">
+          <td>Medicine :</td>
+          <td><select class="text_format" name="drugs" id="drugs" value="drugs" style="width: 280px;">
 						<option value="">select</option>
             <option value="panadol">Panadol</option>
             <option value="cough syrup">Cough syrup</option>
@@ -84,15 +86,15 @@
 		 var commments = document.forms["myForm"]["commments"].value;
 		 var drugs = document.forms["myForm"]["drugs"].value;
 				if (complaint == "") {
-						alert("complaints must be filled out");
+						alert("Please fill up complaint");
 						focus();
 						return false;
 				 }else if (commments =="") {
-						alert("comments must be filled out");
+						alert("Please fill up Comments");
 						focus();
 						return false;
 					}else if (drugs =="") {
-							alert("drugs must be be chosen out");
+							alert("Please choose Medicine");
 							focus();
 							return false;
 
