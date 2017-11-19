@@ -2,7 +2,7 @@
 <html>
 <head>
 	<link rel="stylesheet" type="text/css" href="../CSS/style.css">
-
+  <script type="text/javascript" src="../jsFunction.js"></script>
   <title> Main Menu </title>
 </head>
 
@@ -17,7 +17,7 @@
    <img src="IMG/sitipic.png"/>
    <p> WELCOME SITI </p>
    <button> MANAGE ACCOUNT</button>
-   <button> LOG OUT</button>
+   <button onclick="logout()"> LOG OUT</button>
  </div>
 
  <div class="container" >
@@ -34,18 +34,22 @@
           <td>B031520027</td>
           <td>951258462515</td>
           <td>Ali</td>
-          <td><a href="#" name="btnConsult" class="button">Generate Report</a></td>
+          <td><a href="#" name="btnConsult" class="button" onclick="generateReport()">Generate Report</a></td>
         </tr>
         <tr>
           <td>2</td>
           <td>B031590027</td>
           <td>951258462513</td>
           <td>Mickey</td>
-          <td><a href="#" name="btnConsult" class="button">Generate Report</a></td>
+          <td><a href="#" name="btnConsult" class="button" onclick="generateReport()">Generate Report</a></td>
         </tr>
       </table>
  </div>
 
-
+<script type="text/javascript">
+  function generateReport(){
+    alert("Report generate");
+  }
+</script>
  </body>
  </html>
