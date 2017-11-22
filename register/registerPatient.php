@@ -33,28 +33,28 @@
  </div>
 
  <div class="container" >
-   <form action="#" class="register" class="text_format" name="myForm" onsubmit="return validateForm()" method="post">
+   <form action="registerFunction.php" class="register" class="text_format" name="myForm" onsubmit="return validateForm()" method="post">
       <table class="tbl_in_consult">
         <tr>
-          <td>Matric No:</td>
-          <td class="text_align_left"><input type="text" name="matric" placeholder="" maxlength="10" style="width: 200px;"></td>
+          <td>Matric/Staff No *:</td>
+          <td class="text_align_left"><input type="text" name="matric" placeholder="" maxlength="10" style="width: 200px;" required=""></td>
         </tr>
         <tr>
-          <td>IC/Passport:</td>
-          <td class="text_align_left"><input type="text" name="ic" placeholder="" maxlength="12" style="width: 200px;"></td>
+          <td>IC/Passport *:</td>
+          <td class="text_align_left"><input type="text" name="ic" placeholder="" maxlength="12" style="width: 200px;" required=""></td>
         </tr>
         <tr>
-          <td>Full Name:</td>
-          <td class="text_align_left"><input type="text" name="fullname" placeholder="" style="width: 200px;"></td>
+          <td>Full Name *:</td>
+          <td class="text_align_left"><input type="text" name="fullname" placeholder="" style="width: 200px;" required=""></td>
         </tr>
         <tr>
-          <td>Age:</td>
-          <td class="text_align_left"><input type="text" name="age" placeholder="" maxlength="2" style="width: 200px;"></td>
+          <td>Age *:</td>
+          <td class="text_align_left"><input type="text" name="age" placeholder="" maxlength="2" style="width: 200px;" required=""></td>
         </tr>
         <tr>
-          <td>Gender:</td>
-					<td><select class="text_align_left" name="gender" id="gender" value="" style="width: 205px;">
-						<option value="">select</option>
+          <td>Gender *:</td>
+					<td><select class="text_align_left" name="gender" id="gender" value="" style="width: 205px;" required="">
+						<option value="" selected="" disabled="">select</option>
 						<option value="female">Female</option>
 						<option value="male">Male</option>
 					</select></td>
@@ -62,7 +62,7 @@
         </tr>
         <tr>
           <td>Address:</td>
-          <td class="text_align_left"><input type="text" name="address" placeholder="" style="width: 200px;"></td>
+          <td class="text_align_left"><textarea name="address" placeholder="" style="width: 200px;"></textarea></td>
         </tr>
         <tr>
           <td>Email:</td>
@@ -76,36 +76,5 @@
       </table>
     </form>
  </div>
-  <script type="text/javascript">
-			 	function validateForm(){
-					 		var matric = document.forms["myForm"]["matric"].value;
-					 		var ic = document.forms["myForm"]["ic"].value;
-							var fullname = document.forms["myForm"]["fullname"].value;
-							var gender = document.forms["myForm"]["gender"].value;
-							var address = document.forms["myForm"]["address"].value;
-							var email = document.forms["myForm"]["email"].value;
-
-
-					 			 if (matric == "") {
-					 					 alert("Please fill up Matric No");
-					 					 return false;
-					 				}else if(ic=""){
-					    				alert("Please fill up IC No");
-											return false;
-					 					}else if (fullname =="") {
-						 					 alert("Please fill up Full Name");
-						 					 focus();
-						 					 return false;
-						 					}else if (gender =="") {
-							 					 alert("Please select Gender");
-							 					 focus();
-							 					 return false;
-
-											 }else if (email ="") {
-								 					 alert("Please fill up Email");
-								 					 return false;
-					 		}
-				}
-			 </script>
  </body>
  </html>

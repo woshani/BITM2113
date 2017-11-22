@@ -36,7 +36,7 @@
  </div>
 
  <div class="container" >
-   <form action="" class="register">
+   <div  class="register">
       <table id="listPatient" class="tbl">
         <tr>
           <th>No</th>
@@ -52,14 +52,14 @@
           if(mysqli_num_rows($selectResult) > 0){
             $count = 0;
             while($row = mysqli_fetch_array($selectResult)){
-              echo "<tr><td>".($count+1)."</td><td>".$row['matricNo']."</td><td>".$row['ic_number']."</td><td>".$row['full_name']."</td><td>".$row['status']."</td><td><a href='consult.html' name='btnConsult' class='button'>Consult</a></td></tr>";
+              echo "<tr><td>".($count+1)."</td><td>".$row['matricNo']."</td><td>".$row['ic_number']."</td><td>".$row['full_name']."</td><td>".$row['status']."</td><td><form action='consult.php' method='post'><input type='submit' value='consult' class='button'><input type='hidden' name='medID' value='".$row['med_id']."'></form></td></tr>";
             }
           }else{
             echo "<tr><td colspan='6' align='center'>No Patient Available!</td></tr>";
           } 
         ?>
       </table>
-    </form>
+    </div>
 
  </div>
 

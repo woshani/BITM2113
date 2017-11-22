@@ -1,4 +1,15 @@
 <!DOCTYPE html>
+<?php
+  include "../connection/connection.php";
+  session_start();
+  if(!isset($_SESSION['userid']))
+  {
+      header("Location: ../index.html");
+      exit;
+  }
+  $medid = $_POST['medID'];
+  $sql = "select med_id,ic_number,matricNo,full_name,gender,age,address,email,idType,status from patient WHERE med_id='".$medid."'"; 
+?>
 <html>
 <head>
 	<link rel="stylesheet" type="text/css" href="../CSS/style.css">
@@ -15,10 +26,11 @@
  <div class="sidenav">
 
    <img src="#"/>
-   <p class="text_format"> WELCOME SITI </p>
+   <p class="text_format"> WELCOME <b><?php echo $_SESSION['full_name']; ?></b> </p>
+   <p class="text_format"><?php echo $_SESSION['role'];?></p>
    <button> MANAGE ACCOUNT</button>
-	 <a href="../mainmenu.html"><button>HOME</button></a>
-   <a href="index.html"><button> LOG OUT</button></a>
+   <a href="../mainmenu.php"><button>HOME</button></a>
+   <a href="../out.php"><button> LOG OUT</button></a>
 
  </div>
 
@@ -26,17 +38,22 @@
    <form action="" class="register" name="myForm" onsubmit="return validateForm()">
     <h2 class="text_format">Patient Details</h2>
       <table class="tbl_in_consult">
-        <tr>
+        <?php 
+          $selectResult = mysqli_query($conn,$sql);
+          if(mysqli_num_rows($selectResult) > 0){
+            $count = 0;
+            while($row = mysqli_fetch_array($selectResult)){ ?>
+                    <tr>
           <td>Matric Number:</td>
-          <td>B031520027</td>
+          <td><?php echo $row['matricNo']; ?></td>
         </tr>
         <tr>
           <td>Name:</td>
-          <td>Ana Aisyah Bt Fairuz</td>
+          <td><?php echo $row['full_name']; ?></td>
         </tr>
         <tr>
           <td>Ic/Passport Number:</td>
-          <td>951258462515</td>
+          <td><?php echo $row['ic_number']; ?></td>
         </tr>
         <tr>
           <td></td>
@@ -57,7 +74,7 @@
         <tr>
           <td>Medicine :</td>
           <td><select class="text_format" name="drugs" id="drugs" value="drugs" style="width: 280px;">
-						<option value="">select</option>
+            <option value="">select</option>
             <option value="panadol">Panadol</option>
             <option value="cough syrup">Cough syrup</option>
           </select></td>
@@ -74,6 +91,12 @@
           <td></td>
           <td><input type="button" name="" class="button" value="submit" onclick="validateForm()"></td>
         </tr>
+           <?php }
+          }else{
+            echo "<tr><td colspan='6' align='center'>No Patient Available!</td></tr>";
+          } 
+        ?>
+
       </table>
 
     </form>
