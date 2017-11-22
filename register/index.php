@@ -1,4 +1,13 @@
 <!DOCTYPE html>
+<?php
+  include "../connection/connection.php";
+  session_start();
+  if(!isset($_SESSION['userid']))
+  {
+      header("Location: ../index.html");
+      exit;
+  } 
+?>
 <html>
 <head>
 	<link rel="stylesheet" type="text/css" href="../CSS/style.css">
@@ -15,9 +24,11 @@
  <div class="sidenav">
 
    <img src="IMG/sitipic.png"/>
-   <p class="text_format"> WELCOME SITI </p>
+   <p class="text_format"> WELCOME <b><?php echo $_SESSION['full_name']; ?></b> </p>
+   <p class="text_format"><?php echo $_SESSION['role'];?></p>
    <button> MANAGE ACCOUNT</button>
-   <button> LOG OUT</button>
+   <a href="../mainmenu.php"><button>HOME</button></a>
+   <a href="../out.php"><button> LOG OUT</button></a>
  </div>
 
  <div class="container" >
