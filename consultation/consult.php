@@ -60,11 +60,11 @@
           <td></td>
         </tr>
         <tr>
-          <td>Complaint :</td>
+          <td>Complaint/Symptom :</td>
           <td><textarea class="text_format" name="complaint" value="complaint" rows="3" cols="40"s></textarea></td>
         </tr>
         <tr>
-          <td>Comments :</td>
+          <td>Notes/Prescription :</td>
           <td><textarea class="text_format" name="commments" value="commments" rows="4" cols="40"s></textarea></td>
         </tr>
         <tr>
@@ -74,9 +74,15 @@
         <tr>
           <td>Medicine :</td>
           <td><select class="text_format" name="drugs" id="drugs" value="drugs" style="width: 280px;">
-            <option value="">select</option>
-            <option value="panadol">Panadol</option>
-            <option value="cough syrup">Cough syrup</option>
+            <?php 
+              $selectDrug = "select drug_id,drug_name,price_per_unit,quantity from drug;";
+              $selectResult2 = mysqli_query($conn,$selectDrug);
+              if(mysqli_num_rows($selectResult) > 0){
+                while ($row2 = mysqli_fetch_array($selectResult2)) {
+                  echo "<option value='".$row2['drug_id']."'>".$row2['drug_name']."</option>";
+                }
+              }
+            ?>
           </select></td>
         </tr>
         <tr>
