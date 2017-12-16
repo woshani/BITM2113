@@ -3,7 +3,7 @@
   session_start();
   if(!isset($_SESSION['userid']))
 {
-    header("Location: index.html");
+    header("Location: index.php");
     exit;
 } 
 ?>
@@ -47,7 +47,7 @@
    <img src="#"/>
    <p class="text_format"> WELCOME <b><?php echo $_SESSION['full_name']; ?></b> </p>
    <p class="text_format"><?php echo $_SESSION['role'];?></p>
-   <button> MANAGE ACCOUNT</button>
+   <!-- <button> MANAGE ACCOUNT</button> -->
 
    <a href="out.php"><button> LOG OUT</button></a>
 
@@ -67,13 +67,13 @@
 			</div>
 		</a>
 
-			<a href="pharmacy/index.html" id="pharmacy">
+			<a href="pharmacy/index.php" id="pharmacy">
 			<div class="box1">
 				<p> PHARMACY </p>
 			</div>
 		</a>
 
-		<a href="report/registerPatient.html" id="report">
+		<a href="report/registerPatient.php" id="report">
 			<div class="box1">
 				<p> GENERATE REPORT </p>
 			</div>

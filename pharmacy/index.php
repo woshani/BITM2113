@@ -1,49 +1,34 @@
 <!DOCTYPE html>
-<?php
-  include "../connection/connection.php";
-  session_start();
-  if(!isset($_SESSION['userid']))
-  {
-      header("Location: ../index.php");
-      exit;
-  } 
-?>
-
 <html>
 <head>
 	<link rel="stylesheet" type="text/css" href="../CSS/style.css">
-  <style type="text/css">
 
-  </style>
-  <title class="text_format"> Main Menu </title>
+  <title class="text_format"> Pharmacy </title>
 </head>
 
 <body>
   <div class="topnav">
-    <h1 class="text_format"> List Patient </h1>
+    <h1 class="text_format"> List to Dispense </h1>
     <br/>
  </div>
 
  <div class="sidenav">
 
    <img src="#"/>
-   <p class="text_format"> WELCOME <b><?php echo $_SESSION['full_name']; ?></b> </p>
-   <p class="text_format"><?php echo $_SESSION['role'];?></p>
+   <p class="text_format"> WELCOME SITI </p>
 <!--    <button> MANAGE ACCOUNT</button>
- -->	 <a href="../mainmenu.php"><button>HOME</button></a>
-   <a href="../out.php"><button> LOG OUT</button></a>
+ -->	 <a href="../mainmenu.html"><button>HOME</button></a>
+   <a href="../index.html"><button> LOG OUT</button></a>
 
  </div>
 
  <div class="container" >
-   <div  class="register">
-      <table id="listPatient" class="tbl">
+   <table id="listPatient" class="tbl">
         <tr>
           <th>No</th>
           <th>Matric Number</th>
           <th>Ic/Passport</th>
           <th>Name</th>
-          <th>Status</th>
           <th>Action</th>
         </tr>
         <?php
@@ -58,9 +43,8 @@
             echo "<tr><td colspan='6' align='center'>No Patient Available!</td></tr>";
           } 
         ?>
-      </table>
-    </div>
 
+      </table>
  </div>
 
 

@@ -35,7 +35,7 @@
  </div>
 
  <div class="container" >
-   <form action="" class="register" name="myForm" onsubmit="return validateForm()">
+   <form action="saveConsultation.php" class="register" name="myForm" onsubmit="return validateForm()" method="post">
     <h2 class="text_format">Patient Details</h2>
       <table class="tbl_in_consult">
         <?php 
@@ -45,6 +45,7 @@
             while($row = mysqli_fetch_array($selectResult)){ ?>
                     <tr>
           <td>Matric Number:</td>
+          <input type="hidden" name="medvalue" value="<?php echo $row['med_id'];?>">
           <td><?php echo $row['matricNo']; ?></td>
         </tr>
         <tr>
@@ -73,7 +74,7 @@
         </tr>
         <tr>
           <td>Medicine :</td>
-          <td><select class="text_format" name="drugs" id="drugs" value="drugs" style="width: 280px;">
+          <td><select class="text_format" name="drugs" id="drugs" style="width: 280px;">
             <?php 
               $selectDrug = "select drug_id,drug_name,price_per_unit,quantity from drug;";
               $selectResult2 = mysqli_query($conn,$selectDrug);

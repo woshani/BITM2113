@@ -1,3 +1,11 @@
+<?php
+  session_start();
+  if(isset($_SESSION['userid']))
+{
+    header("Location: mainmenu.php");
+    exit;
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>

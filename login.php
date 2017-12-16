@@ -13,7 +13,6 @@ if($result->num_rows > 0){
     	$_SESSION["full_name"]=$row['full_name'];
     	$_SESSION["pass"]=$row['pass'];
     	$_SESSION["ic_num"]=$row['ic_num'];
-    	$_SESSION["telno"]=$row['telno'];
     	$_SESSION["role"]=$row['role'];
     }
     echo "<script>location='mainmenu.php';</script>";
