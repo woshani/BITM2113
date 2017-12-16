@@ -87,8 +87,8 @@
           </select></td>
         </tr>
         <tr>
-          <td></td>
-          <td></td>
+          <td>Quantity :</td>
+          <td><input type="number" name="quantity"></td>
         </tr>
         <tr>
           <td></td>
@@ -96,7 +96,11 @@
         </tr>
         <tr>
           <td></td>
-          <td><input type="button" name="" class="button" value="submit" onclick="validateForm()"></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><input type="submit" name="" class="button" value="submit" onclick="validateForm()"></td>
         </tr>
            <?php }
           }else{
