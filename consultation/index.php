@@ -46,14 +46,32 @@
           <th>Status</th>
           <th>Action</th>
         </tr>
-        <?php
+       <?php
           $sql = "select med_id,ic_number,matricNo,full_name,gender,age,address,email,idType,status from patient order by status";
           $selectResult = mysqli_query($conn,$sql);
           if(mysqli_num_rows($selectResult) > 0){
             $count = 0;
-            while($row = mysqli_fetch_array($selectResult)){
-              echo "<tr><td>".($count+1)."</td><td>".$row['matricNo']."</td><td>".$row['ic_number']."</td><td>".$row['full_name']."</td><td>".$row['status']."</td><td><form action='consult.php' method='post'><input type='submit' value='consult' class='button'><input type='hidden' name='medID' value='".$row['med_id']."'></form></td></tr>";
-            }
+            while($row = mysqli_fetch_array($selectResult)){ ?>
+              <tr>
+                <td><?php echo ($count+1); ?></td> 
+                <td><?php echo $row['matricNo']; ?></td>
+                <td><?php echo $row['ic_number']; ?></td>
+                <td> <?php echo $row['full_name']; ?></td>
+                <td> <?php echo $row['status']; ?></td>
+                <td>
+                  <form action='consult.php' method='post'>
+                    <?php
+                      if($row['status'] == "Waiting"){ ?>
+                        <input type='submit' value='consult' class='button'>
+                      <?php }else{ ?>
+                        <button class='button' disabled>consult</button>
+                      <?php } 
+                    ?>
+                    <input type='hidden' name='medID' value='<?php echo $row["med_id"]; ?>'>
+                  </form>
+                </td>
+              </tr>
+           <?php }
           }else{
             echo "<tr><td colspan='6' align='center'>No Patient Available!</td></tr>";
           } 

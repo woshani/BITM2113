@@ -1,3 +1,12 @@
+<?php
+  include "../connection/connection.php";
+  session_start();
+  if(!isset($_SESSION['userid']))
+  {
+      header("Location: ../index.php");
+      exit;
+  } 
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,18 +36,38 @@
         <tr>
           <th>No</th>
           <th>Matric Number</th>
-          <th>Ic/Passport</th>
           <th>Name</th>
+          <th>Drug</th>
+          <th>Notes</th>
           <th>Action</th>
         </tr>
         <?php
-          $sql = "select med_id,ic_number,matricNo,full_name,gender,age,address,email,idType,status from patient order by status";
+
+          $sql = "select d.consult_id,d.drug_id,d.quantity,d.notes,d.status,c.med_id,p.full_name,p.matricno,dr.drug_name from drug_prescription d,consultation c,patient p,drug dr where d.status = 'NOT' and c.consult_id = d.consult_id and c.med_id = p.med_id and dr.drug_id = d.drug_id;";
           $selectResult = mysqli_query($conn,$sql);
           if(mysqli_num_rows($selectResult) > 0){
             $count = 0;
-            while($row = mysqli_fetch_array($selectResult)){
-              echo "<tr><td>".($count+1)."</td><td>".$row['matricNo']."</td><td>".$row['ic_number']."</td><td>".$row['full_name']."</td><td>".$row['status']."</td><td><form action='consult.php' method='post'><input type='submit' value='consult' class='button'><input type='hidden' name='medID' value='".$row['med_id']."'></form></td></tr>";
-            }
+            while($row = mysqli_fetch_array($selectResult)){ ?>
+              <tr>
+                <td><?php echo ($count+1); ?></td> 
+                <td><?php echo $row['matricno']; ?></td>
+                <td><?php echo $row['full_name']; ?></td>
+                <td> <?php echo $row['drug_name']; ?></td>
+                <td> <?php echo $row['notes']; ?></td>
+                <td>
+                  <form action='' method='post'>
+                    <?php
+                      if($row['status'] == "Waiting"){ ?>
+                        <input type='submit' value='Dispense' class='button'>
+                      <?php }else{ ?>
+                        <button class='button' disabled>Dispense</button>
+                     <?php } 
+                    ?>
+                    <input type='hidden' name='medID' value='<?php echo $row["med_id"]; ?>'>
+                  </form>
+                </td>
+              </tr>
+           <?php }
           }else{
             echo "<tr><td colspan='6' align='center'>No Patient Available!</td></tr>";
           } 
