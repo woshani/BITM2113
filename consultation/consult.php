@@ -4,11 +4,11 @@
   session_start();
   if(!isset($_SESSION['userid']))
   {
-      header("Location: ../index.html");
+      header("Location: ../index.php");
       exit;
   }
   $medid = $_POST['medID'];
-  $sql = "select med_id,ic_number,matricNo,full_name,gender,age,address,email,idType,status from patient WHERE med_id='".$medid."'"; 
+  $sql = "select med_id,ic_number,matricNo,full_name,gender,age,address,email,date_in,status from patient WHERE med_id='".$medid."'"; 
 ?>
 <html>
 <head>
@@ -28,7 +28,6 @@
    <img src="#"/>
    <p class="text_format"> WELCOME <b><?php echo $_SESSION['full_name']; ?></b> </p>
    <p class="text_format"><?php echo $_SESSION['role'];?></p>
-   <button> MANAGE ACCOUNT</button>
    <a href="../mainmenu.php"><button>HOME</button></a>
    <a href="../out.php"><button> LOG OUT</button></a>
 

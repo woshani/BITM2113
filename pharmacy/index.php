@@ -24,7 +24,8 @@
  <div class="sidenav">
 
    <img src="#"/>
-   <p class="text_format"> WELCOME SITI </p>
+   <p class="text_format"> WELCOME <b><?php echo $_SESSION['full_name']; ?></b> </p>
+   <p class="text_format"><?php echo $_SESSION['role'];?></p>
 <!--    <button> MANAGE ACCOUNT</button>
 -->	 <a href="../mainmenu.php"><button>HOME</button></a>
    <a href="../out.php"><button> LOG OUT</button></a>

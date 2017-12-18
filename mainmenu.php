@@ -73,7 +73,7 @@
 			</div>
 		</a>
 
-		<a href="report/registerPatient.php" id="report">
+		<a href="report/index.php" id="report">
 			<div class="box1">
 				<p> GENERATE REPORT </p>
 			</div>
