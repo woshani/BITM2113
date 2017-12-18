@@ -47,7 +47,7 @@
           <th>Action</th>
         </tr>
        <?php
-          $sql = "select med_id,ic_number,matricNo,full_name,gender,age,address,email,idType,status from patient order by status";
+          $sql = "select med_id,ic_number,matricNo,full_name,gender,age,address,email,idType,status from patient where status != 'Discharged' order by status";
           $selectResult = mysqli_query($conn,$sql);
           if(mysqli_num_rows($selectResult) > 0){
             $count = 0;

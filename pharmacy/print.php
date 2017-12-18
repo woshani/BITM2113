@@ -57,7 +57,8 @@ if(!isset($_SESSION['userid']))
 
   
 
-$sql = "UPDATE drug_prescription SET status = 'Dispense' WHERE consult_id = '".$_GET["consult_id"]."'";
+$sql = "UPDATE drug_prescription SET status = 'Dispense' WHERE consult_id = '".$_GET["consult_id"]."';";
+$sql .= "UPDATE patient SET status = 'Discharged' WHERE med_id = '".$_GET['mediid']."';"; 
 $result = mysqli_multi_query($conn,$sql);
 if($result){
 		

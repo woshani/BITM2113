@@ -27,7 +27,7 @@
    <p class="text_format"> WELCOME SITI </p>
 <!--    <button> MANAGE ACCOUNT</button>
 -->	 <a href="../mainmenu.php"><button>HOME</button></a>
-   <a href="../index.php"><button> LOG OUT</button></a>
+   <a href="../out.php"><button> LOG OUT</button></a>
 
  </div>
 
@@ -55,7 +55,7 @@
                 <td> <?php echo $row['drug_name']; ?></td>
                 <td> <?php echo $row['notes']; ?></td>
                 <td>
-                  <form action='print.php?matricno=<?php echo $row['matricno']; ?>&full_name=<?php echo $row['full_name']; ?>&drug_name=<?php echo $row['drug_name']; ?>&notes=<?php echo $row['notes']; ?>&consult_id=<?php echo $row['consult_id']; ?>' method='post'>
+                  <form action='print.php?matricno=<?php echo $row['matricno']; ?>&full_name=<?php echo $row['full_name']; ?>&drug_name=<?php echo $row['drug_name']; ?>&notes=<?php echo $row['notes']; ?>&consult_id=<?php echo $row['consult_id']; ?>&mediid=<?php echo $row['med_id'];?>' method='post'>
                     <?php
                       if($row['status'] == "Waiting"){ ?>
                         <input type='submit' value='Dispense' class='button'>
