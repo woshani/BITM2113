@@ -5,7 +5,7 @@
   {
       header("Location: ../index.php");
       exit;
-  } 
+  }
 ?>
 <!DOCTYPE html>
 <html>
@@ -26,8 +26,8 @@
    <img src="#"/>
    <p class="text_format"> WELCOME SITI </p>
 <!--    <button> MANAGE ACCOUNT</button>
- -->	 <a href="../mainmenu.html"><button>HOME</button></a>
-   <a href="../index.html"><button> LOG OUT</button></a>
+-->	 <a href="../mainmenu.php"><button>HOME</button></a>
+   <a href="../index.php"><button> LOG OUT</button></a>
 
  </div>
 
@@ -49,19 +49,19 @@
             $count = 0;
             while($row = mysqli_fetch_array($selectResult)){ ?>
               <tr>
-                <td><?php echo ($count+1); ?></td> 
+                <td><?php echo ($count+1); ?></td>
                 <td><?php echo $row['matricno']; ?></td>
                 <td><?php echo $row['full_name']; ?></td>
                 <td> <?php echo $row['drug_name']; ?></td>
                 <td> <?php echo $row['notes']; ?></td>
                 <td>
-                  <form action='' method='post'>
+                  <form action='print.php?matricno=<?php echo $row['matricno']; ?>&full_name=<?php echo $row['full_name']; ?>&drug_name=<?php echo $row['drug_name']; ?>&notes=<?php echo $row['notes']; ?>&consult_id=<?php echo $row['consult_id']; ?>' method='post'>
                     <?php
                       if($row['status'] == "Waiting"){ ?>
                         <input type='submit' value='Dispense' class='button'>
                       <?php }else{ ?>
-                        <button class='button' disabled>Dispense</button>
-                     <?php } 
+                        <button class='button'>Dispense</button>
+                     <?php }
                     ?>
                     <input type='hidden' name='medID' value='<?php echo $row["med_id"]; ?>'>
                   </form>
@@ -70,7 +70,7 @@
            <?php }
           }else{
             echo "<tr><td colspan='6' align='center'>No Patient Available!</td></tr>";
-          } 
+          }
         ?>
 
       </table>
